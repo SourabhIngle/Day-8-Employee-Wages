@@ -1,18 +1,23 @@
 public class EmployeeWages {
     public static void main(String[] args) {
 
-        // CONSTANT VARIABLE
-        final int IS_FULL_TIME = 1;
+        // CONSTANT VALUES
+        int IS_PRESENT = 1;
 
-        // Generate random number between 0 or 1.
-        int random = (int) ((Math.random() * 10) % 2);
+        final int EMP_RATE_PER_HR = 20;
+        final int EMP_HRS = 8;
+
+        // Generate random number between 0 or 1
+        int random = (int) (Math.floor(Math.random() * 10) % 2);
         System.out.println(random);
 
-        //Check employee is present or absent.
-        if (random == IS_FULL_TIME) {
-            System.out.println("Employee is Present");
+        int EmpWage;
+        if (random == IS_PRESENT) {
+            EmpWage = (EMP_RATE_PER_HR * EMP_HRS);
         } else {
-            System.out.println("Employee is Absent");
+            EmpWage = 0;
         }
+        System.out.println("Daily Wage of the Employee is: " + EmpWage);
     }
+
 }
