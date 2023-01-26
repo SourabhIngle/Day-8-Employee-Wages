@@ -2,27 +2,41 @@ public class EmployeeWages {
     public static void main(String[] args) {
 
         //constants
-        int EMP_RATE_PER_HR = 20;
-        int empWorkingHrs;
+        final int IS_PRESENT = 1;
+        final int IS_ABSENT = 2;
+        final int EMP_RATE_PER_HR = 20;
+        final int TOTAL_WORKING_DAYS = 20;
+
+        //variables;
+        int empHrs;
+        int totalEarnings = 0;
         int dailyWage;
+        int empDays = 0;
 
-        int random = (int) Math.floor(Math.random() * 10) % 3;
-        System.out.println(random);
-
-        switch (random) {
-            case 1:
-                System.out.println("Employee is Present FULL TIME.");
-                empWorkingHrs = 8;
-                break;
-            case 2:
-                System.out.println("Employee is Present Part Time.");
-                empWorkingHrs = 4;
-                break;
-            default:
-                System.out.println("Employee is ABSENT.");
-                empWorkingHrs = 0;
+        for (int i = 0; i < TOTAL_WORKING_DAYS; i++) {
+            int random = (int) Math.floor(Math.random() * 10) % 3;
+            empDays++;
+            switch (random) {
+                case 1:
+                    empHrs = 8;
+                    dailyWage = empHrs * EMP_RATE_PER_HR;
+                    totalEarnings = totalEarnings + dailyWage;
+                    System.out.println("Earning till Day " + empDays + " is: " + dailyWage);
+                    break;
+                case 2:
+                    empHrs = 4;
+                    dailyWage = empHrs * EMP_RATE_PER_HR;
+                    totalEarnings = totalEarnings + dailyWage;
+                    System.out.println("Earning till Day " + empDays + " is: " + dailyWage);
+                    break;
+                default:
+                    empHrs = 0;
+                    dailyWage = empHrs * EMP_RATE_PER_HR;
+                    totalEarnings = totalEarnings + dailyWage;
+                    System.out.println("Earning till Day " + empDays + " is: " + dailyWage);
+                    break;
+            }
         }
-        dailyWage = (EMP_RATE_PER_HR * empWorkingHrs);
-        System.out.println("Employee has worked " + empWorkingHrs + ", hence earned a salary of Rs. " + dailyWage);
+        System.out.println("Employee has earned " + totalEarnings + " in a month");
     }
 }
